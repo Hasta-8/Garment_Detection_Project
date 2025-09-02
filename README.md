@@ -79,3 +79,18 @@ curl -X POST "http://127.0.0.1:8000/analyze" \
   "description": "Trendy red striped t-shirt with comfortable short sleeves, perfect for casual wear."
 }
 ```
+
+## 🚀 Future Improvements
+
+- ### Enhanced Title & Description Generation
+
+    - Integrate BLIP-2
+    (Bootstrapping Language-Image Pretraining) to generate more human-like and context-aware product titles and descriptions for e-commerce.
+
+    - Example: Instead of "red t-shirt", BLIP-2 could generate "Stylish Red Cotton T-Shirt with Comfortable Fit".
+
+- ### Model Expansion
+
+    - Add more garment categories, sleeve types, patterns, and color options for broader coverage.
+
+    - Fine-tune Fashion-CLIP or use specialized fashion models for higher accuracy.
