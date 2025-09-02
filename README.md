@@ -17,22 +17,28 @@ An image-based API built with **FastAPI** that analyzes garment photos and predi
 - Ready to integrate into **e-commerce platforms**
 
 ## 📂 Project Structure
+```bash
 garment_detection_project/
 │── main.py # FastAPI app & API routes
 │── utils.py # Attribute detection functions
 │── requirements.txt # Dependencies
 │── README.md # Documentation (this file)
 │── sample_images/ # Example garment images
+```
 
 ## ⚙️ Installation
 
 ### 1. Clone the repository
+```bash
 git clone https://github.com/yourusername/garment-detection-api.git
 cd garment-detection-api
+```
 
 ### 2. Create virtual environment
+```bash
 python3 -m venv venv
 source venv/bin/activate   # On Linux/Mac
 venv\Scripts\activate      # On Windows
+```
 
 dasfd
