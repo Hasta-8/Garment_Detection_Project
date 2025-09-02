@@ -34,3 +34,5 @@ cd garment-detection-api
 python3 -m venv venv
 source venv/bin/activate   # On Linux/Mac
 venv\Scripts\activate      # On Windows
+
+dasfd
