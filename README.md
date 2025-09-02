@@ -41,4 +41,41 @@ source venv/bin/activate   # On Linux/Mac
 venv\Scripts\activate      # On Windows
 ```
 
-dasfd
+### 3. Install dependencies
+```bash
+pip install -r requirements.txt
+```
+
+### 4. Run FastAPI app
+```bash
+uvicorn main:app --reload
+```
+The API will be live at 👉 `http://127.0.0.1:8000`
+
+## 🧪 API Usage
+
+### Endpoint:
+
+`POST /analyze`
+
+### Parameters:
+
+- `file` → Image of garment (form-data upload).
+
+### Example (Postman / curl):
+```bash
+curl -X POST "http://127.0.0.1:8000/analyze" \
+-F "file=@sample_images/tshirt.jpg"
+```
+
+### Example Response:
+```bash
+{
+  "category": "t-shirt",
+  "base_color": "red",
+  "pattern": "striped",
+  "sleeve": "short sleeves",
+  "title": "Red Striped T-Shirt - Short Sleeves",
+  "description": "Trendy red striped t-shirt with comfortable short sleeves, perfect for casual wear."
+}
+```
