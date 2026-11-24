@@ -1,0 +1,113 @@
+{
+ "request_id": "precomputed",
+ "attributes": {
+  "category": {
+   "label": "shirt",
+   "score": 0.9105,
+   "alternatives": [
+    {
+     "label": "shirt",
+     "score": 0.9105
+    },
+    {
+     "label": "top",
+     "score": 0.0697
+    },
+    {
+     "label": "jacket",
+     "score": 0.0098
+    }
+   ]
+  },
+  "colour": {
+   "label": "tan",
+   "score": 0.2659,
+   "alternatives": [
+    {
+     "label": "tan",
+     "score": 0.2659
+    },
+    {
+     "label": "black",
+     "score": 0.2434
+    },
+    {
+     "label": "navy",
+     "score": 0.2346
+    }
+   ]
+  },
+  "pattern": {
+   "label": "checked",
+   "score": 0.9427,
+   "alternatives": [
+    {
+     "label": "checked",
+     "score": 0.9427
+    },
+    {
+     "label": "argyle",
+     "score": 0.0205
+    },
+    {
+     "label": "plain",
+     "score": 0.0182
+    }
+   ]
+  },
+  "sleeve": {
+   "label": "long",
+   "score": 0.5311,
+   "alternatives": [
+    {
+     "label": "long",
+     "score": 0.5311
+    },
+    {
+     "label": "three quarter",
+     "score": 0.4339
+    },
+    {
+     "label": "short",
+     "score": 0.0346
+    }
+   ]
+  },
+  "gender": {
+   "label": "men",
+   "score": 0.9818,
+   "alternatives": [
+    {
+     "label": "men",
+     "score": 0.9818
+    },
+    {
+     "label": "unisex",
+     "score": 0.0149
+    },
+    {
+     "label": "women",
+     "score": 0.0032
+    }
+   ]
+  }
+ },
+ "title": "Men's tan checked shirt, long sleeves",
+ "description": "A men's shirt in tan, with a checked pattern and long sleeves. Attributes inferred from the image by Fashion-CLIP.",
+ "image": {
+  "format": "JPEG",
+  "width": 500,
+  "height": 667,
+  "exif_orientation": 1
+ },
+ "timings": {
+  "decode_ms": 5.0,
+  "model_ms": 211.8,
+  "total_ms": 216.8
+ },
+ "model": "patrickjohncyh/fashion-clip@7e3ba62",
+ "settings": {
+  "top_k": 3,
+  "torch_threads": 4
+ }
+}

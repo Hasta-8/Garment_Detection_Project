@@ -1,0 +1,112 @@
+{
+ "experiment": "G3 sleeve/pattern",
+ "labelled": 100,
+ "sleeve": {
+  "n": 100,
+  "accuracy": 0.83,
+  "macro_f1": 0.7612445053876375,
+  "recall_by_class": {
+   "long": {
+    "n": 52,
+    "recall": 0.846
+   },
+   "short": {
+    "n": 22,
+    "recall": 0.773
+   },
+   "sleeveless": {
+    "n": 21,
+    "recall": 0.81
+   },
+   "three quarter": {
+    "n": 5,
+    "recall": 1.0
+   }
+  },
+  "truth_counts": {
+   "sleeveless": 21,
+   "three quarter": 5,
+   "long": 52,
+   "short": 22
+  },
+  "confusions": {
+   "long -> three quarter": 6,
+   "sleeveless -> short": 4,
+   "short -> three quarter": 3,
+   "short -> sleeveless": 2,
+   "long -> short": 1,
+   "long -> sleeveless": 1
+  }
+ },
+ "pattern": {
+  "n": 100,
+  "accuracy": 0.57,
+  "macro_f1": 0.3845268542199488,
+  "recall_by_class": {
+   "abstract": {
+    "n": 2,
+    "recall": 0.0
+   },
+   "checked": {
+    "n": 6,
+    "recall": 0.833
+   },
+   "embroidery": {
+    "n": 3,
+    "recall": 0.0
+   },
+   "floral": {
+    "n": 5,
+    "recall": 0.6
+   },
+   "geometric": {
+    "n": 12,
+    "recall": 0.0
+   },
+   "graphic print": {
+    "n": 14,
+    "recall": 0.429
+   },
+   "herringbone": {
+    "n": 1,
+    "recall": 0.0
+   },
+   "plain": {
+    "n": 43,
+    "recall": 0.814
+   },
+   "polka dot": {
+    "n": 1,
+    "recall": 1.0
+   },
+   "striped": {
+    "n": 13,
+    "recall": 0.538
+   }
+  },
+  "truth_counts": {
+   "graphic print": 14,
+   "embroidery": 3,
+   "abstract": 2,
+   "plain": 43,
+   "geometric": 12,
+   "striped": 13,
+   "floral": 5,
+   "herringbone": 1,
+   "checked": 6,
+   "polka dot": 1
+  },
+  "confusions": {
+   "geometric -> checked": 4,
+   "geometric -> argyle": 3,
+   "plain -> embroidery": 3,
+   "striped -> plain": 3,
+   "graphic print -> plain": 3,
+   "graphic print -> embroidery": 3,
+   "floral -> ikat": 2,
+   "plain -> graphic print": 2,
+   "graphic print -> floral": 1,
+   "embroidery -> lace": 1
+  }
+ }
+}

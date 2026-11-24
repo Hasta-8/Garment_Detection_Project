@@ -1,0 +1,110 @@
+[
+ {
+  "id": "hoodie-shop",
+  "image": "samples/hoodie-shop.jpg",
+  "result": "samples/hoodie-shop.json",
+  "credit": {
+   "title": "\"Vaccinated\" hoodie on sale, reference to COVID-19.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:%22Vaccinated%22_hoodie_on_sale,_reference_to_COVID-19.jpg",
+   "author": "Syced",
+   "licence": "CC0",
+   "licence_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  }
+ },
+ {
+  "id": "denim-jacket",
+  "image": "samples/denim-jacket.jpg",
+  "result": "samples/denim-jacket.json",
+  "credit": {
+   "title": "1980s blue denim jacket, Finland – 01.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:1980s_blue_denim_jacket,_Finland_%E2%80%93_01.jpg",
+   "author": "Etelä-Karjalan museo",
+   "licence": "CC BY 4.0",
+   "licence_url": "https://creativecommons.org/licenses/by/4.0"
+  }
+ },
+ {
+  "id": "khadi-kurta",
+  "image": "samples/khadi-kurta.jpg",
+  "result": "samples/khadi-kurta.json",
+  "credit": {
+   "title": "Blue khadi kurta.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Blue_khadi_kurta.jpg",
+   "author": "Purva4u",
+   "licence": "CC BY-SA 3.0",
+   "licence_url": "http://creativecommons.org/licenses/by-sa/3.0/"
+  }
+ },
+ {
+  "id": "leather-jacket",
+  "image": "samples/leather-jacket.jpg",
+  "result": "samples/leather-jacket.json",
+  "credit": {
+   "title": "Cherry Red Leather jacket from Italian brand.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Cherry_Red_Leather_jacket_from_Italian_brand.jpg",
+   "author": "Peachyeung316",
+   "licence": "CC BY-SA 4.0",
+   "licence_url": "https://creativecommons.org/licenses/by-sa/4.0"
+  }
+ },
+ {
+  "id": "patterned-sweater",
+  "image": "samples/patterned-sweater.jpg",
+  "result": "samples/patterned-sweater.json",
+  "credit": {
+   "title": "Dale of Norway sweater.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Dale_of_Norway_sweater.jpg",
+   "author": "Menswear Market",
+   "licence": "CC BY 2.0",
+   "licence_url": "https://creativecommons.org/licenses/by/2.0"
+  }
+ },
+ {
+  "id": "green-skirt",
+  "image": "samples/green-skirt.jpg",
+  "result": "samples/green-skirt.json",
+  "credit": {
+   "title": "Green Poplin Skirt by Sybil Connolly- full length front.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Green_Poplin_Skirt_by_Sybil_Connolly-_full_length_front.jpg",
+   "author": "Hunt Museum and Inés Rivilla López",
+   "licence": "CC BY-SA 4.0",
+   "licence_url": "https://creativecommons.org/licenses/by-sa/4.0"
+  }
+ },
+ {
+  "id": "brown-trousers",
+  "image": "samples/brown-trousers.jpg",
+  "result": "samples/brown-trousers.json",
+  "credit": {
+   "title": "Jeans MET 1978.175.3 B.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Jeans_MET_1978.175.3_B.jpg",
+   "author": "Levi Strauss & Co.",
+   "licence": "CC0",
+   "licence_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  }
+ },
+ {
+  "id": "striped-shirt",
+  "image": "samples/striped-shirt.jpg",
+  "result": "samples/striped-shirt.json",
+  "credit": {
+   "title": "Paul Smith striped shirt.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Paul_Smith_striped_shirt.jpg",
+   "author": "Robert Sheie",
+   "licence": "CC BY 2.0",
+   "licence_url": "https://creativecommons.org/licenses/by/2.0"
+  }
+ },
+ {
+  "id": "plaid-shirt",
+  "image": "samples/plaid-shirt.jpg",
+  "result": "samples/plaid-shirt.json",
+  "credit": {
+   "title": "Plaid IZOD men's shirt.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Plaid_IZOD_men%27s_shirt.jpg",
+   "author": "Punker1999",
+   "licence": "CC0",
+   "licence_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+  }
+ }
+]

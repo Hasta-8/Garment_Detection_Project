@@ -1,0 +1,113 @@
+{
+ "request_id": "precomputed",
+ "attributes": {
+  "category": {
+   "label": "hoodie",
+   "score": 0.9741,
+   "alternatives": [
+    {
+     "label": "hoodie",
+     "score": 0.9741
+    },
+    {
+     "label": "sweatshirt",
+     "score": 0.0144
+    },
+    {
+     "label": "sweater",
+     "score": 0.0054
+    }
+   ]
+  },
+  "colour": {
+   "label": "maroon",
+   "score": 0.2321,
+   "alternatives": [
+    {
+     "label": "maroon",
+     "score": 0.2321
+    },
+    {
+     "label": "tan",
+     "score": 0.2302
+    },
+    {
+     "label": "black",
+     "score": 0.1834
+    }
+   ]
+  },
+  "pattern": {
+   "label": "embroidery",
+   "score": 0.3365,
+   "alternatives": [
+    {
+     "label": "embroidery",
+     "score": 0.3365
+    },
+    {
+     "label": "plain",
+     "score": 0.2563
+    },
+    {
+     "label": "checked",
+     "score": 0.1987
+    }
+   ]
+  },
+  "sleeve": {
+   "label": "long",
+   "score": 0.9748,
+   "alternatives": [
+    {
+     "label": "long",
+     "score": 0.9748
+    },
+    {
+     "label": "three quarter",
+     "score": 0.0155
+    },
+    {
+     "label": "sleeveless",
+     "score": 0.0086
+    }
+   ]
+  },
+  "gender": {
+   "label": "unisex",
+   "score": 0.9919,
+   "alternatives": [
+    {
+     "label": "unisex",
+     "score": 0.9919
+    },
+    {
+     "label": "men",
+     "score": 0.0049
+    },
+    {
+     "label": "women",
+     "score": 0.0031
+    }
+   ]
+  }
+ },
+ "title": "Unisex maroon embroidery hoodie, long sleeves",
+ "description": "A unisex hoodie in maroon, with a embroidery pattern and long sleeves. Attributes inferred from the image by Fashion-CLIP.",
+ "image": {
+  "format": "JPEG",
+  "width": 675,
+  "height": 900,
+  "exif_orientation": 1
+ },
+ "timings": {
+  "decode_ms": 8.1,
+  "model_ms": 897.6,
+  "total_ms": 905.8
+ },
+ "model": "patrickjohncyh/fashion-clip@7e3ba62",
+ "settings": {
+  "top_k": 3,
+  "torch_threads": 4
+ }
+}

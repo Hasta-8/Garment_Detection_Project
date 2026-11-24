@@ -1,0 +1,113 @@
+{
+ "request_id": "precomputed",
+ "attributes": {
+  "category": {
+   "label": "jacket",
+   "score": 0.8844,
+   "alternatives": [
+    {
+     "label": "jacket",
+     "score": 0.8844
+    },
+    {
+     "label": "top",
+     "score": 0.0777
+    },
+    {
+     "label": "jeans",
+     "score": 0.017
+    }
+   ]
+  },
+  "colour": {
+   "label": "blue",
+   "score": 0.6331,
+   "alternatives": [
+    {
+     "label": "blue",
+     "score": 0.6331
+    },
+    {
+     "label": "navy",
+     "score": 0.0924
+    },
+    {
+     "label": "tan",
+     "score": 0.0693
+    }
+   ]
+  },
+  "pattern": {
+   "label": "embroidery",
+   "score": 0.6605,
+   "alternatives": [
+    {
+     "label": "embroidery",
+     "score": 0.6605
+    },
+    {
+     "label": "plain",
+     "score": 0.1147
+    },
+    {
+     "label": "camouflage",
+     "score": 0.0576
+    }
+   ]
+  },
+  "sleeve": {
+   "label": "long",
+   "score": 0.8188,
+   "alternatives": [
+    {
+     "label": "long",
+     "score": 0.8188
+    },
+    {
+     "label": "three quarter",
+     "score": 0.11
+    },
+    {
+     "label": "short",
+     "score": 0.0535
+    }
+   ]
+  },
+  "gender": {
+   "label": "women",
+   "score": 0.4803,
+   "alternatives": [
+    {
+     "label": "women",
+     "score": 0.4803
+    },
+    {
+     "label": "unisex",
+     "score": 0.3495
+    },
+    {
+     "label": "men",
+     "score": 0.1702
+    }
+   ]
+  }
+ },
+ "title": "Women's blue embroidery jacket, long sleeves",
+ "description": "A women's jacket in blue, with a embroidery pattern and long sleeves. Attributes inferred from the image by Fashion-CLIP.",
+ "image": {
+  "format": "JPEG",
+  "width": 500,
+  "height": 594,
+  "exif_orientation": 1
+ },
+ "timings": {
+  "decode_ms": 8.6,
+  "model_ms": 275.5,
+  "total_ms": 284.1
+ },
+ "model": "patrickjohncyh/fashion-clip@7e3ba62",
+ "settings": {
+  "top_k": 3,
+  "torch_threads": 4
+ }
+}

@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Garment attributes demo</title>
+<style>
+  :root { --bg:#f5f6f8; --panel:#fff; --line:#dde1e7; --text:#1d2330; --muted:#5d6676; --accent:#2563eb; --ok:#15803d; --warn:#b45309; --bad:#b91c1c; --chip:#eef1f5; }
+  @media (prefers-color-scheme: dark) { :root { --bg:#14171c; --panel:#1c2027; --line:#2e343e; --text:#e6e8ec; --muted:#9aa3b0; --accent:#6aa7ff; --ok:#5bc285; --warn:#e0a44f; --bad:#ef7676; --chip:#262b34; } }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--text); font:14px/1.45 system-ui, -apple-system, "Segoe UI", sans-serif; }
+  a { color:var(--accent); }
+  header { display:flex; align-items:center; gap:12px; flex-wrap:wrap; padding:10px 16px; background:var(--panel); border-bottom:1px solid var(--line); }
+  header h1 { font-size:17px; margin:0; } header .sub { color:var(--muted); }
+  header nav { margin-left:auto; display:flex; gap:14px; }
+  .pill { font-size:12px; padding:2px 9px; border-radius:999px; background:var(--chip); color:var(--muted); }
+  .pill.ok { color:var(--ok); } .pill.warn { color:var(--warn); } .pill.bad { color:var(--bad); }
+  main { display:grid; grid-template-columns: 300px minmax(0, 1fr); gap:12px; padding:12px; align-items:start; }
+  @media (max-width: 900px) { main { grid-template-columns: minmax(0, 1fr); } }
+  .card { background:var(--panel); border:1px solid var(--line); border-radius:10px; padding:12px; }
+  .card h2 { font-size:13px; text-transform:uppercase; letter-spacing:.04em; color:var(--muted); margin:0 0 8px; }
+  .stack > * + * { margin-top:12px; }
+  .grid { display:grid; grid-template-columns: repeat(3, 1fr); gap:6px; }
+  .thumb { border:2px solid transparent; border-radius:8px; cursor:pointer; overflow:hidden; background:#fff; }
+  .thumb.active { border-color:var(--accent); }
+  .thumb img { width:100%; height:90px; object-fit:contain; display:block; }
+  .view { display:grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); gap:16px; }
+  @media (max-width: 700px) { .view { grid-template-columns: minmax(0, 1fr); } }
+  #photo { width:100%; max-height:520px; object-fit:contain; background:#fff; border-radius:8px; }
+  .title { font-size:18px; font-weight:600; margin:2px 0 4px; }
+  .desc { color:var(--muted); margin:0 0 12px; }
+  .attr { padding:8px 0; border-top:1px solid var(--line); }
+  .attr .name { font-size:12px; text-transform:uppercase; letter-spacing:.04em; color:var(--muted); }
+  .row { display:grid; grid-template-columns: 110px 1fr 46px; gap:8px; align-items:center; font-size:13px; margin-top:3px; }
+  .row.top { font-weight:600; font-size:14px; }
+  .bar { height:8px; border-radius:4px; background:var(--chip); position:relative; overflow:hidden; }
+  .bar i { position:absolute; left:0; top:0; bottom:0; background:var(--accent); border-radius:4px; }
+  .row:not(.top) .bar i { opacity:.45; }
+  .num { text-align:right; font-variant-numeric: tabular-nums; }
+  .note { font-size:12px; color:var(--muted); }
+  .warnbox { background:var(--chip); border-radius:8px; padding:8px 10px; font-size:13px; }
+  button { font:inherit; border:1px solid var(--line); background:var(--chip); color:var(--text); border-radius:6px; padding:5px 10px; cursor:pointer; }
+  button.primary { background:var(--accent); border-color:var(--accent); color:#fff; }
+  pre { max-height:300px; overflow:auto; background:var(--chip); padding:8px; border-radius:6px; font-size:11.5px; margin:0; }
+  #msg { min-height:1.2em; font-size:12px; color:var(--muted); } #msg.bad { color:var(--bad); }
+</style>
+</head>
+<body>
+<header>
+  <h1>Garment attributes</h1>
+  <span class="sub">category, colour, pattern, sleeve and gender section from a photo, with Fashion-CLIP</span>
+  <span id="ready" class="pill">checking…</span>
+  <nav class="small">
+    <a id="docs" href="/docs">API docs</a>
+    <a href="https://github.com/Hasta-8/Garment_Detection_Project#accuracy-measured" target="_blank" rel="noopener">Measured accuracy</a>
+  </nav>
+</header>
+<main>
+  <section class="stack">
+    <div class="card">
+      <h2>Sample photos</h2>
+      <div class="grid" id="samples"></div>
+      <p id="samplenote" class="note" style="margin:8px 0 0">Results appear instantly (computed in advance by the same API). <b>Run live</b> sends the photo to the service now.</p>
+    </div>
+    <div class="card" id="upload">
+      <h2>Your photo</h2>
+      <input id="file" type="file" accept="image/jpeg,image/png,image/webp">
+      <p class="note" style="margin:6px 0 0">One garment, plain background works best. Not stored.</p>
+    </div>
+    <div class="card note">
+      <h2>Read this first</h2>
+      Scores are a softmax over each attribute's fixed list of candidates: how much closer the photo is to
+      one label's text than to the others, <b>not a probability of being right</b>. Measured on catalogue photos,
+      category is right about 3 times in 4 and colour about 3 in 5 (see "Measured accuracy").
+      <div id="credit" style="margin-top:8px"></div>
+    </div>
+  </section>
+  <section class="stack">
+    <div class="card">
+      <div style="display:flex; justify-content:space-between; align-items:center; gap:8px; flex-wrap:wrap">
+        <span id="msg"></span><button id="live" class="primary" disabled>Run live</button>
+      </div>
+      <div class="view" style="margin-top:8px">
+        <img id="photo" alt="garment">
+        <div>
+          <div class="title" id="title"></div>
+          <p class="desc" id="description"></p>
+          <div id="attrs"></div>
+          <p class="note">Title and description are filled in from the labels by a fixed template; no language model writes them.
+            "Gender section" is the catalogue section a garment is styled for, inferred from the image, not a fact about any person.</p>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div style="display:flex; justify-content:space-between; align-items:center"><h2 style="margin:0">JSON response</h2><button id="tjson">Show</button></div>
+      <pre id="json" hidden></pre>
+    </div>
+  </section>
+</main>
+<script>
+const $ = (id) => document.getElementById(id);
+const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
+const NAMES = { category: "Category", colour: "Colour", pattern: "Pattern", sleeve: "Sleeve", gender: "Gender section" };
+let samples = [], current = null, liveFile = null, staticMode = false;
+
+function enterStatic() {
+  staticMode = true;
+  $("ready").textContent = "static demo: precomputed results"; $("ready").className = "pill";
+  $("docs").hidden = true; $("live").hidden = true; $("upload").hidden = true;
+  $("samplenote").innerHTML = `This online copy shows results computed in advance by the real API. To analyse your own
+    photos, run it locally: <a href="https://github.com/Hasta-8/Garment_Detection_Project#quick-start" target="_blank" rel="noopener">Quick start</a>.`;
+}
+async function pollReady() {
+  let r;
+  try { r = await fetch("/ready", { cache: "no-store" }); } catch { return enterStatic(); }
+  if (!(r.headers.get("content-type") || "").includes("application/json")) return enterStatic();
+  if (r.ok) { $("ready").textContent = "model ready"; $("ready").className = "pill ok"; return; }
+  const b = await r.json().catch(() => ({}));
+  $("ready").textContent = b.error === "startup_failed" ? "model loading failed" : "loading model…";
+  $("ready").className = "pill " + (b.error === "startup_failed" ? "bad" : "warn");
+  if (b.error !== "startup_failed") setTimeout(pollReady, 2000);
+}
+async function loadSamples() {
+  try { samples = await (await fetch("samples/samples.json")).json(); } catch { samples = []; }
+  $("samples").innerHTML = samples.map((s) => `<div class="thumb" data-id="${s.id}" title="${esc(s.credit.title)}"><img src="${s.image}" alt="${esc(s.id)}" loading="lazy"></div>`).join("");
+  document.querySelectorAll(".thumb").forEach((el) => el.onclick = () => openSample(el.dataset.id));
+  const h = new URLSearchParams(location.hash.slice(1));
+  if (samples.length) await openSample(h.get("sample") || samples[0].id);
+}
+async function openSample(id) {
+  const s = samples.find((x) => x.id === id); if (!s) return;
+  current = s; liveFile = null;
+  document.querySelectorAll(".thumb").forEach((el) => el.classList.toggle("active", el.dataset.id === id));
+  const c = s.credit;
+  $("credit").innerHTML = `Photo: <a href="${c.page}" target="_blank" rel="noopener">${esc(c.title)}</a> by ${esc(c.author)},
+    <a href="${c.licence_url}" target="_blank" rel="noopener">${esc(c.licence)}</a>, via Wikimedia Commons.`;
+  $("live").disabled = staticMode; msg("precomputed result");
+  show(s.image, await (await fetch(s.result)).json());
+}
+function show(src, res) {
+  $("photo").src = src;
+  $("title").textContent = res.title; $("description").textContent = res.description;
+  $("attrs").innerHTML = Object.entries(res.attributes).map(([k, a]) => `
+    <div class="attr"><div class="name">${NAMES[k] || k}</div>
+      ${a.alternatives.map((x, i) => `<div class="row ${i === 0 ? "top" : ""}"><span>${esc(x.label)}</span>
+        <span class="bar"><i style="width:${(x.score * 100).toFixed(1)}%"></i></span><span class="num">${x.score.toFixed(2)}</span></div>`).join("")}
+    </div>`).join("");
+  $("json").textContent = JSON.stringify(res, null, 1);
+}
+function msg(t, bad) { $("msg").textContent = t; $("msg").className = bad ? "bad" : ""; }
+async function runLive(blob, name, src) {
+  $("live").disabled = true; msg("running on this machine's CPU…");
+  const fd = new FormData(); fd.append("file", blob, name);
+  const t0 = performance.now();
+  try {
+    const r = await fetch("/v1/analyze", { method: "POST", body: fd }); const b = await r.json();
+    if (!r.ok) return msg(`${r.status} ${b.error}: ${b.detail}`, true);
+    show(src, b); msg(`live result in ${((performance.now() - t0) / 1000).toFixed(1)} s`);
+  } catch (e) { msg("request failed: " + e.message, true); } finally { $("live").disabled = false; }
+}
+$("live").onclick = async () => {
+  if (liveFile) return runLive(liveFile, liveFile.name, URL.createObjectURL(liveFile));
+  if (current) runLive(await (await fetch(current.image)).blob(), current.id + ".jpg", current.image);
+};
+$("file").onchange = () => {
+  const f = $("file").files[0]; if (!f) return;
+  current = null; liveFile = f; $("credit").textContent = "";
+  document.querySelectorAll(".thumb").forEach((el) => el.classList.remove("active"));
+  runLive(f, f.name, URL.createObjectURL(f));
+};
+$("tjson").onclick = () => { const p = $("json"); p.hidden = !p.hidden; $("tjson").textContent = p.hidden ? "Show" : "Hide"; };
+pollReady(); loadSamples();
+</script>
+</body>
+</html>

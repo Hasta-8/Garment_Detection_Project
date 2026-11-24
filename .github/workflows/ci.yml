@@ -1,0 +1,29 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v10.4.0
+
+      - name: Check the lock file is up to date
+        run: uv lock --check
+
+      - name: Lint
+        run: uvx ruff@0.17.6 check .
+
+      - name: Format check
+        run: uvx ruff@0.17.6 format --check .
+
+      - name: Install dependencies from the lock file (CPU-only torch)
+        run: uv sync --locked
+
+      - name: Tests (stand-in model, so no model download)
+        run: uv run pytest

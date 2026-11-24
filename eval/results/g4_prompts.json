@@ -1,0 +1,163 @@
+{
+ "experiment": "G4",
+ "images": 2115,
+ "attributes": {
+  "gender": {
+   "sets": {
+    "A": {
+     "prompts_example": [
+      "male",
+      "female",
+      "unisex"
+     ],
+     "tune": {
+      "n": 990,
+      "accuracy": 0.113,
+      "macro_f1": 0.126
+     },
+     "test": {
+      "n": 977,
+      "accuracy": 0.137,
+      "macro_f1": 0.144
+     }
+    },
+    "B": {
+     "prompts_example": [
+      "men's clothing",
+      "women's clothing",
+      "unisex clothing"
+     ],
+     "tune": {
+      "n": 990,
+      "accuracy": 0.956,
+      "macro_f1": 0.683
+     },
+     "test": {
+      "n": 977,
+      "accuracy": 0.937,
+      "macro_f1": 0.664
+     }
+    },
+    "C": {
+     "prompts_example": [
+      "a photo of a garment for men",
+      "a photo of a garment for women",
+      "a photo of a unisex garment"
+     ],
+     "tune": {
+      "n": 990,
+      "accuracy": 0.79,
+      "macro_f1": 0.585
+     },
+     "test": {
+      "n": 977,
+      "accuracy": 0.782,
+      "macro_f1": 0.579
+     }
+    }
+   },
+   "best_on_tune": "B",
+   "test_gain_vs_A": 0.8,
+   "adopt": true
+  },
+  "colour": {
+   "sets": {
+    "A": {
+     "prompts_example": [
+      "black",
+      "white",
+      "grey"
+     ],
+     "tune": {
+      "n": 1000,
+      "accuracy": 0.573,
+      "macro_f1": 0.476
+     },
+     "test": {
+      "n": 988,
+      "accuracy": 0.597,
+      "macro_f1": 0.467
+     }
+    },
+    "B": {
+     "prompts_example": [
+      "a black garment",
+      "a white garment",
+      "a grey garment"
+     ],
+     "tune": {
+      "n": 1000,
+      "accuracy": 0.538,
+      "macro_f1": 0.505
+     },
+     "test": {
+      "n": 988,
+      "accuracy": 0.536,
+      "macro_f1": 0.466
+     }
+    },
+    "C": {
+     "prompts_example": [
+      "a photo of black clothing",
+      "a photo of white clothing",
+      "a photo of grey clothing"
+     ],
+     "tune": {
+      "n": 1000,
+      "accuracy": 0.568,
+      "macro_f1": 0.487
+     },
+     "test": {
+      "n": 988,
+      "accuracy": 0.55,
+      "macro_f1": 0.471
+     }
+    }
+   },
+   "best_on_tune": "A",
+   "test_gain_vs_A": 0.0,
+   "adopt": false
+  },
+  "category": {
+   "sets": {
+    "A": {
+     "prompts_example": [
+      "t-shirt",
+      "shirt",
+      "jeans"
+     ],
+     "tune": {
+      "n": 1057,
+      "accuracy": 0.745,
+      "macro_f1": 0.724
+     },
+     "test": {
+      "n": 1058,
+      "accuracy": 0.74,
+      "macro_f1": 0.735
+     }
+    },
+    "B": {
+     "prompts_example": [
+      "a photo of a t-shirt",
+      "a photo of a shirt",
+      "a photo of a jeans"
+     ],
+     "tune": {
+      "n": 1057,
+      "accuracy": 0.749,
+      "macro_f1": 0.741
+     },
+     "test": {
+      "n": 1058,
+      "accuracy": 0.742,
+      "macro_f1": 0.731
+     }
+    }
+   },
+   "best_on_tune": "B",
+   "test_gain_vs_A": 0.002,
+   "adopt": false
+  }
+ }
+}

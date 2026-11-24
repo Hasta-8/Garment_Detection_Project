@@ -1,0 +1,14 @@
+# `docker compose up --build` → http://127.0.0.1:8003 (published on this machine only).
+# Needs Fashion-CLIP in a Hugging Face cache folder on the host
+# (GARMENT_MODELS_HOST_DIR, default ../ai_models/huggingface; see the README).
+services:
+  garment:
+    build: .
+    image: garment-attributes:0.2
+    ports:
+      - "127.0.0.1:8003:8003"
+    environment:
+      GARMENT_TORCH_THREADS: ${GARMENT_TORCH_THREADS:-4}
+    volumes:
+      - ${GARMENT_MODELS_HOST_DIR:-../ai_models/huggingface}:/models:ro
+    restart: unless-stopped

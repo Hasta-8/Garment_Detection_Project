@@ -1,0 +1,14 @@
+.git
+.github
+.env
+.venv
+venv_garment_detection
+**/__pycache__
+.pytest_cache
+.ruff_cache
+.cache
+eval
+tests
+sample_images
+report.md
+startup.md
