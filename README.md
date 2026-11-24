@@ -11,7 +11,7 @@ classifier was trained. FastAPI service, CPU only.
 > catalogue photos (below), Docker and a demo page. **Category, sleeve and gender
 > section are usable; colour and especially pattern are not reliable.**
 
-**▶ [Try the online demo](https://hasta-8.github.io/Garment_Detection_Project/)** (precomputed results, runs in the browser)
+**▶ [Try the online demo](https://hasta-8.github.io/Garment_Detection_Project/)** (precomputed results, runs in the browser) · **[65-second walkthrough video](https://github.com/Hasta-8/Garment_Detection_Project/releases/tag/v0.2.0)** (on the release; a YouTube copy is planned)
 
 ## How it works
 
@@ -52,6 +52,7 @@ garment photo
 | Accuracy per attribute on held-out labelled photos; score threshold study | IMPLEMENTED (`eval/`) |
 | An "uncertain" answer in the API | PLANNED (the measured category threshold, 0.88, is a starting point) |
 | Docker (model mounted read-only), demo page, online static copy | IMPLEMENTED |
+| Walkthrough video on YouTube | PLANNED (recorded; for now attached to the [v0.2.0 release](https://github.com/Hasta-8/Garment_Detection_Project/releases/tag/v0.2.0)) |
 
 ## Quick start
 
