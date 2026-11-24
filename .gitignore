@@ -18,3 +18,6 @@ eval/labels/
 
 # Per-item results carry the catalogue's labels (licence unknown): local only
 eval/results/g3_sample.json
+
+# Walkthrough video (attached to a release) and its recording script
+video/
