@@ -52,7 +52,7 @@ garment photo
 | Accuracy per attribute on held-out labelled photos; score threshold study | IMPLEMENTED (`eval/`) |
 | An "uncertain" answer in the API | PLANNED (the measured category threshold, 0.88, is a starting point) |
 | Docker (model mounted read-only), demo page, online static copy | IMPLEMENTED |
-| Walkthrough video on YouTube | DONE ([narrated walkthrough](https://youtu.be/dFRQeSfDtRI); an earlier silent version is attached to the [v0.2.0 release](https://github.com/Hasta-8/Garment_Detection_Project/releases/tag/v0.2.0)) |
+| Walkthrough video on YouTube | DONE ([narrated walkthrough](https://youtu.be/dFRQeSfDtRI)) |
 
 ## Quick start
 
